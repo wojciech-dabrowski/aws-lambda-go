@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+Description: Calculate student grade
+Resources:
+  CalculateStudentGrade:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: calculate-sudent-grade
+      CodeUri: src/function
+      Handler: function
+      Runtime: go1.x
+      Timeout: 5
+      MemorySize: 128
