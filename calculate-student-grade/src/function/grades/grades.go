@@ -11,13 +11,14 @@ func CalculateStudentGrades(lectureGrade float32, exerciseGrade float32, worksho
 	finalGrade = lectureWeight*lectureGrade +
 		exerciseWeight*exerciseGrade +
 		workshopWeight*workshopGrade
-	hasPassed = finalGrade > gradeToPass &&
-		lectureGrade > gradeToPass &&
-		exerciseGrade > gradeToPass
+	hasPassed = finalGrade >= gradeToPass &&
+		lectureGrade >= gradeToPass &&
+		exerciseGrade >= gradeToPass &&
+		workshopGrade >= gradeToPass
 
-	return finalGrade, hasPassed
+	return roundToNearestHalf(finalGrade), hasPassed
 }
 
-func roundToNearestHalf(numberToRound float64) float64 {
-	return math.Round(numberToRound*2)/2
+func roundToNearestHalf(numberToRound float32) float32 {
+	return float32(math.Round(float64(numberToRound*2)) / 2)
 }
