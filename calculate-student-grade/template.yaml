@@ -6,8 +6,8 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: calculate-sudent-grade
-      CodeUri: src/function
-      Handler: function
+      CodeUri: src/main
+      Handler: main
       Runtime: go1.x
       Timeout: 5
       MemorySize: 128
